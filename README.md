@@ -1,9 +1,15 @@
 # deDSI
 
 # Description: 
-deDSI is a highly parallel hybrid C++/Python library that creates a dynamical system interface between dedalus (http://dedalus-project.org/) and the NSolver of Channelflow (https://www.channelflow.ch/). For any given non-linear partial differential equation upto 3 dimension that can be integrated in time by dedalus, this library aims to find the multi-dimensional solutions(roots [equilibria, traveling waves and periodic orbits]) of the equation, continue those roots in parameter space and calculate the eiganvalues of the equation by utilizing advanced and highly optimized NSolver library.
+deDSI is a highly parallel hybrid C++/Python library that creates a dynamical system interface between dedalus (http://dedalus-project.org/) and the NSolver of Channelflow (https://www.channelflow.ch/). 
 
-In current version, Python part of the library is aimed to be a template for a user to easily modify it according to their own equations at hand. The equations provided with this version are Busse's Annulus equations. 
+This library aims to find the solutions ( equilibria, traveling waves and periodic orbits) of non-linear partial differential equations, continue such solutions in parameter space and calculate the eigenvalues of such solutions using Arnoldi iterations. 
+
+For the equation definition and the time integration, deDSI utilizes Dedalus library. For aforementioned dynamical system calculations deDSI utilizes the highly optimize NSolver library.
+
+# Release Notes:
+
+In the current version, Python part of the library is aimed to be a template for the user to easily modify it according to their own equations at hand. The equations provided with this version are Busse's Annulus equations. Also, in the current version 1-D and 2-D equations can be solved, however following the example of the library, functions that handle the third dimension can be implemented easily.
 
 # Installation: 
 
@@ -27,21 +33,21 @@ Operating system: Linux, Unix
 
 a Makefile is provided for the guidance. 
 
-## Starting and contents:
+# Starting & Contents:
 
-Using this library starts with the implementation (dedalus) of listed functions in the interface. Implementation should be done according to the equation that user need to solve. Guidelines and examples are provided as follows:
+Using this library starts with the implementation (dedalus) of listed functions in the interface. Implementation should be done according to the equation that user needs to solve. Guidelines are provided as follows:
 
-#### 1) Python functions that are mandatory are listed in the dedalus interface: ded/de_module_ns_dsi.py
+**1)** Python functions that are mandatory are listed in the dedalus interface: ded/de_module_ns_dsi.py
 
-#### 2) User should use the same name of the functions listed in the interface and implement their own functions for their equations.
+**2)** User should use the same name of the functions listed in the interface and implement their own functions for their equations.
 
-#### 3) An example implementation of those functions for Busse's Annulus model can be found under the folder: ded/busse_ann/ 
+**3)** An example implementation of those functions for Busse's Annulus model can be found under the folder: ded/busse_ann/ 
 
-#### 4) Makefile should be run
+**4)** Makefile should be run
 
-#### 5) Executables will be created under the folder: ./execs/
+**5)** Executables will be created under the folder: ./execs/
 
-#### 6) User will find the following executables:
+**6)** User will find the following executables:
 
  execs/findsolnx      -> for finding the solutions (roots)
 
@@ -49,19 +55,19 @@ Using this library starts with the implementation (dedalus) of listed functions 
 
  execs/findeigenvalsx -> for finding the eigenvalues of given solution
  
-#### 7) Some post-processing functions are also provided under ded/utils/
+**7)** Some post-processing functions are also provided under ded/utils/
 
-## Usage:
+# Usage:
 
-### Help
+## Help
 
-For all the executables above, user can start from using the help option such as:
+For all the executables above, user can use the help option as:
 
 ./findsolnx -h
 
-Help provides possible algorithmic, solver and optimization parameters and their default values.
+Help provides all possible algorithmic, solver and optimization parameters and their default values.
 
-### Examples:
+## Examples:
 All following examples are for the Busse's Annulus system. For more detailed mathematical explanations check channelflow webpage, for the explanations of the flags please refer the help flag.
 
 ### 1) findsolnx
