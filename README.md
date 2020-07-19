@@ -7,10 +7,6 @@ This library aims to find the solutions ( equilibria, traveling waves and period
 
 For the equation definition and the time integration, deDSI utilizes Dedalus library. For aforementioned dynamical system calculations deDSI utilizes the highly optimize NSolver library.
 
-# Release Notes:
-
-In the current version, Python part of the library is aimed to be a template for the user to easily modify it according to their own equations at hand. The equations provided with this version are Busse's Annulus equations. Also, in the current version 1-D and 2-D equations can be solved, however following the example of the library, functions that handle the third dimension can be implemented easily.
-
 # Installation: 
 
 Operating system: Linux, Unix
